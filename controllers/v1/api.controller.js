@@ -1,6 +1,10 @@
 const model = require('../../models/product.model');
 let APIControler = {};
 APIControler.getAllData = (req, res)=>{
+    if (req.query != undefined){
+        updateProduct(res, req.params.id, req.query);
+        return;
+    }
     if (req.params.id != undefined){
         deleteProduct(res, req.params.id);
         return;
@@ -64,5 +68,35 @@ const deleteProduct = (res, id) =>{
             }
         })
     })
+}
+
+
+const updateProduct = (res, id, query)=>{
+    console.log(id,  query);
+    model.findOne({id: Number(id)}, (err, product)=>{
+        if (err) {
+            return res.send({
+                status: 500,
+                message: "Could not update item"
+            });
+        }
+        product.quantity = Number(product.quantity) + Number(query.number);
+
+        model.updateOne(product, (err, data) =>{
+            if (err) {
+                return res.send({
+                    status: 500,
+                    message: "Could not update item"
+                });
+            }
+            return res.send({
+                data : {
+                    product: product,
+                    message: "Updated successfully"
+                }
+            })
+        });
+    })
+    
 }
 module.exports = APIControler;
