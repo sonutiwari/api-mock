@@ -1,14 +1,15 @@
 const mongoose = require('mongoose');
 
-const dbConnection = mongoose.connect('mongodb://localhost:27017/products'
+mongoose.connect('mongodb://localhost:27017/products'
                                       , { 
                                           useUnifiedTopology: true,
                                           useNewUrlParser   : true
                                         }
                             );
-dbConnection.then((success, reject)=>{
-    if (reject) console.log(reject);
-    else console.log("Successfully connected to mongodb colection Products");
+const dbConnection = mongoose.connection;
+dbConnection.on('error', console.error.bind(console, 'connection error:'));
+dbConnection.once('open', function() {
+    console.log("Successfully connected to mongodb colection Products")
 });
 
 module.exports = dbConnection;

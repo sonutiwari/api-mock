@@ -3,7 +3,7 @@ const APIRouter = express.Router();
 
 const APIController = require('../../controllers/v1/api.controller');
 
-APIRouter.get('/', APIController.first);
+APIRouter.get('/:id', APIController.getAllData);
 
 APIRouter.post('/create', APIController.createProduct);
 
