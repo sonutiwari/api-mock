@@ -5,7 +5,7 @@ API Mock test by Coding Ninjas
 
 
 ## URL [POST]: /products/create
-
+<pre>
 //request
     product: {
         name: laptop,
@@ -19,10 +19,10 @@ API Mock test by Coding Ninjas
             quantity: 10
         }
     }
-
+</pre>
 ## API to list products
 ## URL [GET] : /products
-
+<pre>
 data: {
   products: [
    {
@@ -43,19 +43,19 @@ data: {
   ]
 
 }
-
+</pre>
 ## API to delete products
 ## URL [DELETE] : /products/:id
-
+<pre>
 // response
 data: {
   message: “product deleted”
 }
-
+</pre>
 
 ## API to update quantity of a product (can be incremented or decremented)
 ## URL [POST] : /products/:id/update_quantity/?number=10
-
+<pre>
 // response
 data: {
   product: {
@@ -66,9 +66,8 @@ data: {
 
   message: updated successfully
 }
-
-
-## To use the API simply clone the repo in your local machine and run
+</pre>
+#### To use the API simply clone the repo in your local machine and run
 ### npm i
-## then run 
+#### then run 
 ### nmp start
