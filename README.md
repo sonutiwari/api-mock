@@ -70,4 +70,4 @@ data: {
 #### To use the API simply clone the repo in your local machine and run
 ### npm i
 #### then run 
-### nmp start
+### npm start
