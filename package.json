@@ -24,7 +24,7 @@
   "homepage": "https://github.com/sonutiwari/chitchat#readme",
   "dependencies": {
     "ejs": "^3.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-ejs-layouts": "^2.5.0",
     "mongoose": "^5.9.4"
   }
